@@ -25,10 +25,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install and Build
+      - name: Install dependencies and Node types
         run: |
           cd frontend
           npm install --no-fund --no-audit
+          npm install --save-dev @types/node
           export VITE_BASE="/${{ github.event.repository.name }}/"
           echo "Building with base=$VITE_BASE"
           npm run build
