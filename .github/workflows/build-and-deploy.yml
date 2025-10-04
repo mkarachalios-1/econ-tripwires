@@ -20,50 +20,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Detect project base directory
-        id: detect
-        run: |
-          set -e
-          if [ -d "frontend" ]; then
-            echo "base=." >> $GITHUB_OUTPUT
-            exit 0
-          fi
-          for d in econ-tripwires-with-extras econ-tripwires main repo src ; do
-            if [ -d "$d/frontend" ]; then
-              echo "base=$d" >> $GITHUB_OUTPUT
-              exit 0
-            fi
-          done
-          found=""
-          for d in */; do
-            if [ -d "${d%/}/frontend" ]; then
-              found="${d%/}"
-              break
-            fi
-          done
-          if [ -n "$found" ]; then
-            echo "base=$found" >> $GITHUB_OUTPUT
-          else
-            echo "Could not find frontend directory" >&2
-            exit 1
-          fi
-          echo "Detected base: ${{ steps.detect.outputs.base }}"
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Build frontend
-        working-directory: ${{ steps.detect.outputs.base }}/frontend
         run: |
-          npm ci
+          cd frontend
+          npm install --no-fund --no-audit
           VITE_BASE="/${{ github.event.repository.name }}/" npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ steps.detect.outputs.base }}/frontend/dist
+          path: frontend/dist
 
   deploy:
     needs: build
