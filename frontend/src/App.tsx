@@ -8,12 +8,13 @@ export default function App() {
 
   const base = (import.meta as any).env.BASE_URL || '/';
 
-  useEffect(() => {
-    fetch(base + 'public-data/indicators.json?cachebust=' + Date.now())
-      .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
-      .then(setData)
-      .catch(e => setErr(String(e)));
-  }, []);
+ useEffect(() => {
+  const base = import.meta.env.BASE_URL || '/';
+  fetch(`${base}public-data/indicators.json`)
+    .then(res => res.json())
+    .then(setIndicators)
+    .catch(err => console.error('Failed to load indicators:', err));
+}, []);
 
   if (err) return <div style={{padding:24}}>Failed to load data: {err}</div>;
   if (!data) return <div style={{padding:24}}>Loading…</div>;
