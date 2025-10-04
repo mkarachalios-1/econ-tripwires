@@ -25,12 +25,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: Build frontend
+      - name: Install and Build
         run: |
           cd frontend
           npm install --no-fund --no-audit
-          # fix: Vite expects process.env.BASE or process.env.VITE_BASE
-          echo "VITE_BASE=/${{ github.event.repository.name }}/" >> .env
+          export VITE_BASE="/${{ github.event.repository.name }}/"
+          echo "Building with base=$VITE_BASE"
           npm run build
 
       - name: Upload artifact
