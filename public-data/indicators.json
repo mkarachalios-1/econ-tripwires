@@ -1,5 +1,42 @@
 {
-  "generated_utc": "2025-10-04T13:53:27Z",
-  "start_date": "2015-10-07",
-  "indicators": {}
+  "generated_utc": "2025-10-04T17:16:26Z",
+  "start_date": "2015-10-04",
+  "indicators": {
+    "IG_OAS": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "HY_OAS": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "DSR": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "UNRATE": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "DGS10": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "DGS2": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "INDPRO": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "CPI_YoY": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "INDPRO_YoY": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "T10Y2Y_SPREAD": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "BAA10Y_SPREAD": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "ACM_TP10": {
+      "error": "Excel file format cannot be determined, you must specify an engine manually."
+    }
+  }
 }
