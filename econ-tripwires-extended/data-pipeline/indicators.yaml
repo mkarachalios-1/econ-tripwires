@@ -1,0 +1,85 @@
+start_years_back: 10
+
+fred:
+  api_key_env: FRED_API_KEY
+  # 'series' are direct pulls; 'derived' apply simple transforms.
+  series:
+    IG_OAS:
+      id: BAMLC0A0CM
+      label: "IG Credit Spread (OAS, %)"
+      unit: "%"
+      tripwires:
+        warn_gte: 1.4
+        severe_gte: 1.8
+    HY_OAS:
+      id: BAMLH0A0HYM2
+      label: "HY Credit Spread (OAS, %)"
+      unit: "%"
+      tripwires:
+        warn_gte: 5.0
+        severe_gte: 7.0
+    DSR:
+      id: TDSP
+      label: "Household Debt-Service Ratio (%)"
+      unit: "%"
+      tripwires:
+        warn_gte: 12.0
+    UNRATE:
+      id: UNRATE
+      label: "Unemployment Rate (%)"
+      unit: "%"
+      tripwires:
+        warn_gte: 5.5
+    DGS10:
+      id: DGS10
+      label: "10Y Treasury Yield (%)"
+      unit: "%"
+    DGS2:
+      id: DGS2
+      label: "2Y Treasury Yield (%)"
+      unit: "%"
+    INDPRO:
+      id: INDPRO
+      label: "Industrial Production (Index)"
+      unit: ""
+
+  derived:
+    CPI_YoY:
+      from_id: CPIAUCSL
+      transform: yoy_pct
+      label: "CPI Inflation YoY (%)"
+      unit: "%"
+      tripwires:
+        warn_gte: 4.0
+    INDPRO_YoY:
+      from_id: INDPRO
+      transform: yoy_pct
+      label: "Industrial Production YoY (%)"
+      unit: "%"
+    T10Y2Y_SPREAD:
+      a_id: DGS10
+      b_id: DGS2
+      transform: spread
+      label: "10Y–2Y Treasury Spread (pp)"
+      unit: "pp"
+      tripwires:
+        warn_lte: 0.0
+    BAA10Y_SPREAD:
+      from_id: BAA10Y
+      transform: direct
+      label: "BAA – 10Y Treasury Spread (pp)"
+      unit: "pp"
+
+externals:
+  ACM_TP10:
+    url: "https://www.newyorkfed.org/medialibrary/media/research/data_indicators/ACM_term_premia.csv"
+    label: "ACM 10y Term Premium (%)"
+    column: "tp_10y"
+    unit: "%"
+    tripwires:
+      warn_gte: 1.25
+
+optional:
+  SHILLER_CAPE:
+    enabled: false
+    note: "Add a reliable CAPE API/CSV to enable."
