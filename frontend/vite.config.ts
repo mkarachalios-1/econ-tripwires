@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Use a fallback for GitHub Actions where import.meta.env may not be defined
+// Safely read VITE_BASE or default to '/'
 const base = process.env.VITE_BASE || '/'
 
 export default defineConfig({
   plugins: [react()],
-  base
+  base,
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
+  }
 })
