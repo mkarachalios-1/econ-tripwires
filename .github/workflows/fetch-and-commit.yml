@@ -13,25 +13,64 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Detect project base directory
+        id: detect
+        run: |
+          set -e
+          # Try root
+          if [ -d "data-pipeline" ]; then
+            echo "base=." >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          # Try common one-level folder names
+          for d in econ-tripwires-with-extras econ-tripwires main repo src ; do
+            if [ -d "$d/data-pipeline" ]; then
+              echo "base=$d" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+          done
+          # Fallback: scan one level
+          found=""
+          for d in */; do
+            if [ -d "${d%/}/data-pipeline" ]; then
+              found="${d%/}"
+              break
+            fi
+          done
+          if [ -n "$found" ]; then
+            echo "base=$found" >> $GITHUB_OUTPUT
+          else
+            echo "Could not find data-pipeline directory" >&2
+            exit 1
+          fi
+
+      - name: Show tree (debug)
+        run: |
+          echo "Repo tree:"
+          ls -la
+          echo "Base directory: ${{ steps.detect.outputs.base }}"
+          echo "Base tree:"
+          ls -la "${{ steps.detect.outputs.base }}"
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install deps
+      - name: Install Python deps
         run: |
-          pip install -r data-pipeline/requirements.txt
+          pip install -r "${{ steps.detect.outputs.base }}/data-pipeline/requirements.txt"
 
       - name: Fetch data
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: |
-          python data-pipeline/fetch_data.py
+          python "${{ steps.detect.outputs.base }}/data-pipeline/fetch_data.py"
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public-data/indicators.json
+          git add "${{ steps.detect.outputs.base }}/public-data/indicators.json"
           git commit -m "data: update indicators [skip ci]" || echo "No changes"
           git push
