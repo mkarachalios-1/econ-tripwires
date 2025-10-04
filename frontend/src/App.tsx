@@ -8,13 +8,39 @@ export default function App() {
 
   const base = (import.meta as any).env.BASE_URL || '/';
 
- useEffect(() => {
-  const base = import.meta.env.BASE_URL || '/';
-  fetch(`${base}public-data/indicators.json`)
-    .then(res => res.json())
-    .then(setIndicators)
-    .catch(err => console.error('Failed to load indicators:', err));
-}, []);
+ import React, { useEffect, useState } from 'react';
+
+function App() {
+  const [data, setData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const base = import.meta.env.BASE_URL || '/';
+    fetch(`${base}public-data/indicators.json`)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(setData)
+      .catch(err => {
+        console.error('Failed to load indicators:', err);
+        setError(err.message);
+      });
+  }, []);
+
+  if (error) return <div style={{ color: 'red' }}>Error: {error}</div>;
+  if (!data) return <div>Loading...</div>;
+
+  return (
+    <div>
+      <h1>Economic Tripwires Dashboard</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+}
+
+export default App;
+
 
   if (err) return <div style={{padding:24}}>Failed to load data: {err}</div>;
   if (!data) return <div style={{padding:24}}>Loading…</div>;
