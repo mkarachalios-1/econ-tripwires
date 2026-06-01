@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-05-31T03:24:39Z",
-  "start_date": "2016-05-31",
+  "generated_utc": "2026-06-01T03:25:38Z",
+  "start_date": "2016-06-01",
   "indicators": {
     "IG_OAS": {
       "error": "'numpy.datetime64' object has no attribute 'date'"
@@ -9,31 +9,31 @@
       "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "DSR": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=TDSP&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-05-31"
+      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=TDSP&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-01"
     },
     "UNRATE": {
-      "error": "'numpy.datetime64' object has no attribute 'date'"
+      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-01"
     },
     "DGS10": {
-      "error": "'numpy.datetime64' object has no attribute 'date'"
+      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-01"
     },
     "DGS2": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS2&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-05-31"
-    },
-    "INDPRO": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=INDPRO&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-05-31"
-    },
-    "CPI_YoY": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-05-31"
-    },
-    "INDPRO_YoY": {
       "error": "'numpy.datetime64' object has no attribute 'date'"
     },
+    "INDPRO": {
+      "error": "'numpy.datetime64' object has no attribute 'date'"
+    },
+    "CPI_YoY": {
+      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-01"
+    },
+    "INDPRO_YoY": {
+      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=INDPRO&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-01"
+    },
     "T10Y2Y_SPREAD": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS2&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-05-31"
+      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-01"
     },
     "BAA10Y_SPREAD": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAA10Y&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-05-31"
+      "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "ACM_TP10": {
       "error": "Excel file format cannot be determined, you must specify an engine manually."
