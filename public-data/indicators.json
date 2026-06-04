@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-06-03T03:25:21Z",
-  "start_date": "2016-06-03",
+  "generated_utc": "2026-06-04T03:25:07Z",
+  "start_date": "2016-06-04",
   "indicators": {
     "IG_OAS": {
       "error": "'numpy.datetime64' object has no attribute 'date'"
@@ -9,7 +9,7 @@
       "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "DSR": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=TDSP&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-03"
+      "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "UNRATE": {
       "error": "'numpy.datetime64' object has no attribute 'date'"
@@ -18,10 +18,10 @@
       "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "DGS2": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS2&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-03"
+      "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "INDPRO": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=INDPRO&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-03"
+      "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "CPI_YoY": {
       "error": "'numpy.datetime64' object has no attribute 'date'"
@@ -30,10 +30,10 @@
       "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "T10Y2Y_SPREAD": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-03"
+      "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "BAA10Y_SPREAD": {
-      "error": "429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAA10Y&api_key=aab310fe9f8308fe9bfccf9047da3d2f&file_type=json&observation_start=2016-06-03"
+      "error": "'numpy.datetime64' object has no attribute 'date'"
     },
     "ACM_TP10": {
       "error": "Excel file format cannot be determined, you must specify an engine manually."
