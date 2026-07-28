@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-07-27T03:23:19Z",
-  "start_date": "2016-07-27",
+  "generated_utc": "2026-07-28T03:22:23Z",
+  "start_date": "2016-07-28",
   "indicators": {
     "IG_OAS": {
       "error": "'numpy.datetime64' object has no attribute 'date'"
